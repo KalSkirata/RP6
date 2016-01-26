@@ -1,0 +1,735 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>LightFollowing: Référence du fichier RP6Base_LightFollowing.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">LightFollowing
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier RP6Base_LightFollowing.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;RP6RobotBaseLib.h&quot;</code><br/>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbehaviour__command__t.html">behaviour_command_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a9c21a7caee326d7803b94ae1952b27ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a9c21a7caee326d7803b94ae1952b27ca">IDLE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a9c21a7caee326d7803b94ae1952b27ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51818b7b0d3474e74389495222f54f83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a51818b7b0d3474e74389495222f54f83">CRUISE_SPEED_FWD</a>&#160;&#160;&#160;80</td></tr>
+<tr class="separator:a51818b7b0d3474e74389495222f54f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb73a55f438491791289afd1fc21545d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#adb73a55f438491791289afd1fc21545d">MOVE_FORWARDS</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:adb73a55f438491791289afd1fc21545d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a181cda6f53e1b771be49c31249d1d60b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a181cda6f53e1b771be49c31249d1d60b">ESCAPE_SPEED_BWD</a>&#160;&#160;&#160;80</td></tr>
+<tr class="separator:a181cda6f53e1b771be49c31249d1d60b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c79d686c6b326e75cb090bab91c2a5e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a8c79d686c6b326e75cb090bab91c2a5e">ESCAPE_SPEED_ROTATE</a>&#160;&#160;&#160;60</td></tr>
+<tr class="separator:a8c79d686c6b326e75cb090bab91c2a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aaf04da30dff2834e7675ea76d95201"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a9aaf04da30dff2834e7675ea76d95201">ESCAPE_FRONT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a9aaf04da30dff2834e7675ea76d95201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a706e7918ae3a9eb676278ea126c9be25"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a706e7918ae3a9eb676278ea126c9be25">ESCAPE_FRONT_WAIT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a706e7918ae3a9eb676278ea126c9be25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3c30eed961a6c5d42ef2cb492ce1d2a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#ae3c30eed961a6c5d42ef2cb492ce1d2a">ESCAPE_LEFT</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:ae3c30eed961a6c5d42ef2cb492ce1d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00b980bde7c9e37e7157e5a909a9f0e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a00b980bde7c9e37e7157e5a909a9f0e2">ESCAPE_LEFT_WAIT</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a00b980bde7c9e37e7157e5a909a9f0e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3ceff4b53a60dd8bdac68ac1254e70a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#ab3ceff4b53a60dd8bdac68ac1254e70a">ESCAPE_RIGHT</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:ab3ceff4b53a60dd8bdac68ac1254e70a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a409a70e1a4707c8564204d2b38dec25a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a409a70e1a4707c8564204d2b38dec25a">ESCAPE_RIGHT_WAIT</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:a409a70e1a4707c8564204d2b38dec25a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7528762f37687c108368e7e8d3fb3fc2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a7528762f37687c108368e7e8d3fb3fc2">ESCAPE_WAIT_END</a>&#160;&#160;&#160;7</td></tr>
+<tr class="separator:a7528762f37687c108368e7e8d3fb3fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5d94fb7b25c187a7022dbcf24c9f15e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#ac5d94fb7b25c187a7022dbcf24c9f15e">AVOID_SPEED_L_ARC_LEFT</a>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:ac5d94fb7b25c187a7022dbcf24c9f15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfc35910738caabf3198168f36ef7556"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#adfc35910738caabf3198168f36ef7556">AVOID_SPEED_L_ARC_RIGHT</a>&#160;&#160;&#160;80</td></tr>
+<tr class="separator:adfc35910738caabf3198168f36ef7556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa39c0825c9916b9285a5eff03e87fe9c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#aa39c0825c9916b9285a5eff03e87fe9c">AVOID_SPEED_R_ARC_LEFT</a>&#160;&#160;&#160;80</td></tr>
+<tr class="separator:aa39c0825c9916b9285a5eff03e87fe9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a265d950a98f4435b9b0f8cd078597d55"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a265d950a98f4435b9b0f8cd078597d55">AVOID_SPEED_R_ARC_RIGHT</a>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:a265d950a98f4435b9b0f8cd078597d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a471cc37a02df3af631cd67f5fa4fc99b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a471cc37a02df3af631cd67f5fa4fc99b">AVOID_SPEED_ROTATE</a>&#160;&#160;&#160;60</td></tr>
+<tr class="separator:a471cc37a02df3af631cd67f5fa4fc99b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61963a010dfa81273992cc699accfe7d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a61963a010dfa81273992cc699accfe7d">AVOID_OBSTACLE_RIGHT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a61963a010dfa81273992cc699accfe7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f163da87b05228d110a9462f5cbe02b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a7f163da87b05228d110a9462f5cbe02b">AVOID_OBSTACLE_LEFT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a7f163da87b05228d110a9462f5cbe02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08fa7206d7fc78d639f574d4ba2add3a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a08fa7206d7fc78d639f574d4ba2add3a">AVOID_OBSTACLE_MIDDLE</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a08fa7206d7fc78d639f574d4ba2add3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6775403f801c634b6ab23f3fba32dbac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a6775403f801c634b6ab23f3fba32dbac">AVOID_OBSTACLE_MIDDLE_WAIT</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a6775403f801c634b6ab23f3fba32dbac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7ca33fc01c451c720ed2980d7860f91"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#af7ca33fc01c451c720ed2980d7860f91">AVOID_END</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:af7ca33fc01c451c720ed2980d7860f91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04fb2960994665c4826fb9df66d4d835"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a04fb2960994665c4826fb9df66d4d835">FOLLOW</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a04fb2960994665c4826fb9df66d4d835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3347250b12c8c59f213baf21f1debf42"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a3347250b12c8c59f213baf21f1debf42">LIGHT_MIN</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:a3347250b12c8c59f213baf21f1debf42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a1b704e124976cb368858a59a1b8890aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a1b704e124976cb368858a59a1b8890aa">behaviour_cruise</a> (void)</td></tr>
+<tr class="separator:a1b704e124976cb368858a59a1b8890aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73693195ce9b101167e6dc6c91f113f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a73693195ce9b101167e6dc6c91f113f2">behaviour_escape</a> (void)</td></tr>
+<tr class="separator:a73693195ce9b101167e6dc6c91f113f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a764ac8f4347c7f48eb84712a32cec360"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a764ac8f4347c7f48eb84712a32cec360">bumpersStateChanged</a> (void)</td></tr>
+<tr class="separator:a764ac8f4347c7f48eb84712a32cec360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a097d2f1a8b5fe4b216ab9fc5b91bc8fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a097d2f1a8b5fe4b216ab9fc5b91bc8fc">behaviour_avoid</a> (void)</td></tr>
+<tr class="separator:a097d2f1a8b5fe4b216ab9fc5b91bc8fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76eec3d25e9613c2be8210363fa6d30b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a76eec3d25e9613c2be8210363fa6d30b">acsStateChanged</a> (void)</td></tr>
+<tr class="separator:a76eec3d25e9613c2be8210363fa6d30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9c9902b73db23380927b923d486a77a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#ab9c9902b73db23380927b923d486a77a">behaviour_follow</a> (void)</td></tr>
+<tr class="separator:ab9c9902b73db23380927b923d486a77a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f0892b47efb5f37b64afaba79c9a73c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a5f0892b47efb5f37b64afaba79c9a73c">moveCommand</a> (<a class="el" href="structbehaviour__command__t.html">behaviour_command_t</a> *cmd)</td></tr>
+<tr class="separator:a5f0892b47efb5f37b64afaba79c9a73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa574fe74f36cc360e6ac84b9e97906c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#aa574fe74f36cc360e6ac84b9e97906c6">behaviourController</a> (void)</td></tr>
+<tr class="separator:aa574fe74f36cc360e6ac84b9e97906c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
+<tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a11a1c4eb91d6666d076e912159c42bcf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbehaviour__command__t.html">behaviour_command_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a11a1c4eb91d6666d076e912159c42bcf">STOP</a> = {0, 0, FWD, false, false, 0, <a class="el" href="RP6Base__LightFollowing_8c.html#a9c21a7caee326d7803b94ae1952b27ca">IDLE</a>}</td></tr>
+<tr class="separator:a11a1c4eb91d6666d076e912159c42bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab53550bba3054cc61038ca5491452cec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbehaviour__command__t.html">behaviour_command_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#ab53550bba3054cc61038ca5491452cec">cruise</a></td></tr>
+<tr class="separator:ab53550bba3054cc61038ca5491452cec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b9119ff79b94dae9336c9e84f6fcdab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbehaviour__command__t.html">behaviour_command_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a3b9119ff79b94dae9336c9e84f6fcdab">escape</a> = {0, 0, FWD, false, false, 0, <a class="el" href="RP6Base__LightFollowing_8c.html#a9c21a7caee326d7803b94ae1952b27ca">IDLE</a>}</td></tr>
+<tr class="separator:a3b9119ff79b94dae9336c9e84f6fcdab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83aab701b0dc6b48d35623ddeff11245"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbehaviour__command__t.html">behaviour_command_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a83aab701b0dc6b48d35623ddeff11245">avoid</a> = {0, 0, FWD, false, false, 0, <a class="el" href="RP6Base__LightFollowing_8c.html#a9c21a7caee326d7803b94ae1952b27ca">IDLE</a>}</td></tr>
+<tr class="separator:a83aab701b0dc6b48d35623ddeff11245"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0968db298c973471726c176df190042d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbehaviour__command__t.html">behaviour_command_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RP6Base__LightFollowing_8c.html#a0968db298c973471726c176df190042d">follow</a> = {0, 0, FWD, false, false, 0, <a class="el" href="RP6Base__LightFollowing_8c.html#a9c21a7caee326d7803b94ae1952b27ca">IDLE</a>}</td></tr>
+<tr class="separator:a0968db298c973471726c176df190042d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a class="anchor" id="af7ca33fc01c451c720ed2980d7860f91"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AVOID_END&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a097d2f1a8b5fe4b216ab9fc5b91bc8fc">behaviour_avoid()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7f163da87b05228d110a9462f5cbe02b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AVOID_OBSTACLE_LEFT&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a097d2f1a8b5fe4b216ab9fc5b91bc8fc">behaviour_avoid()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a08fa7206d7fc78d639f574d4ba2add3a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AVOID_OBSTACLE_MIDDLE&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a097d2f1a8b5fe4b216ab9fc5b91bc8fc">behaviour_avoid()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6775403f801c634b6ab23f3fba32dbac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AVOID_OBSTACLE_MIDDLE_WAIT&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a61963a010dfa81273992cc699accfe7d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AVOID_OBSTACLE_RIGHT&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a097d2f1a8b5fe4b216ab9fc5b91bc8fc">behaviour_avoid()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac5d94fb7b25c187a7022dbcf24c9f15e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AVOID_SPEED_L_ARC_LEFT&#160;&#160;&#160;20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a097d2f1a8b5fe4b216ab9fc5b91bc8fc">behaviour_avoid()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adfc35910738caabf3198168f36ef7556"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AVOID_SPEED_L_ARC_RIGHT&#160;&#160;&#160;80</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a097d2f1a8b5fe4b216ab9fc5b91bc8fc">behaviour_avoid()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa39c0825c9916b9285a5eff03e87fe9c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AVOID_SPEED_R_ARC_LEFT&#160;&#160;&#160;80</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a097d2f1a8b5fe4b216ab9fc5b91bc8fc">behaviour_avoid()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a265d950a98f4435b9b0f8cd078597d55"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AVOID_SPEED_R_ARC_RIGHT&#160;&#160;&#160;20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a097d2f1a8b5fe4b216ab9fc5b91bc8fc">behaviour_avoid()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a471cc37a02df3af631cd67f5fa4fc99b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AVOID_SPEED_ROTATE&#160;&#160;&#160;60</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a097d2f1a8b5fe4b216ab9fc5b91bc8fc">behaviour_avoid()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51818b7b0d3474e74389495222f54f83"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRUISE_SPEED_FWD&#160;&#160;&#160;80</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9aaf04da30dff2834e7675ea76d95201"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ESCAPE_FRONT&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a73693195ce9b101167e6dc6c91f113f2">behaviour_escape()</a>, et <a class="el" href="RP6Base__LightFollowing_8c.html#a764ac8f4347c7f48eb84712a32cec360">bumpersStateChanged()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a706e7918ae3a9eb676278ea126c9be25"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ESCAPE_FRONT_WAIT&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a73693195ce9b101167e6dc6c91f113f2">behaviour_escape()</a>, et <a class="el" href="RP6Base__LightFollowing_8c.html#a764ac8f4347c7f48eb84712a32cec360">bumpersStateChanged()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae3c30eed961a6c5d42ef2cb492ce1d2a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ESCAPE_LEFT&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a73693195ce9b101167e6dc6c91f113f2">behaviour_escape()</a>, et <a class="el" href="RP6Base__LightFollowing_8c.html#a764ac8f4347c7f48eb84712a32cec360">bumpersStateChanged()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a00b980bde7c9e37e7157e5a909a9f0e2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ESCAPE_LEFT_WAIT&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a73693195ce9b101167e6dc6c91f113f2">behaviour_escape()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab3ceff4b53a60dd8bdac68ac1254e70a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ESCAPE_RIGHT&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a73693195ce9b101167e6dc6c91f113f2">behaviour_escape()</a>, et <a class="el" href="RP6Base__LightFollowing_8c.html#a764ac8f4347c7f48eb84712a32cec360">bumpersStateChanged()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a409a70e1a4707c8564204d2b38dec25a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ESCAPE_RIGHT_WAIT&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a73693195ce9b101167e6dc6c91f113f2">behaviour_escape()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a181cda6f53e1b771be49c31249d1d60b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ESCAPE_SPEED_BWD&#160;&#160;&#160;80</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a73693195ce9b101167e6dc6c91f113f2">behaviour_escape()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8c79d686c6b326e75cb090bab91c2a5e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ESCAPE_SPEED_ROTATE&#160;&#160;&#160;60</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a73693195ce9b101167e6dc6c91f113f2">behaviour_escape()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7528762f37687c108368e7e8d3fb3fc2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ESCAPE_WAIT_END&#160;&#160;&#160;7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a73693195ce9b101167e6dc6c91f113f2">behaviour_escape()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a04fb2960994665c4826fb9df66d4d835"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FOLLOW&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#ab9c9902b73db23380927b923d486a77a">behaviour_follow()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9c21a7caee326d7803b94ae1952b27ca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IDLE&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a76eec3d25e9613c2be8210363fa6d30b">acsStateChanged()</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a097d2f1a8b5fe4b216ab9fc5b91bc8fc">behaviour_avoid()</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a73693195ce9b101167e6dc6c91f113f2">behaviour_escape()</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#ab9c9902b73db23380927b923d486a77a">behaviour_follow()</a>, et <a class="el" href="RP6Base__LightFollowing_8c.html#aa574fe74f36cc360e6ac84b9e97906c6">behaviourController()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3347250b12c8c59f213baf21f1debf42"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIGHT_MIN&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#ab9c9902b73db23380927b923d486a77a">behaviour_follow()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb73a55f438491791289afd1fc21545d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOVE_FORWARDS&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="a76eec3d25e9613c2be8210363fa6d30b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void acsStateChanged </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>met à jour l'état des LEDS en fonction des capteurs infrarouge </p>
+
+<p>Références <a class="el" href="RP6Base__LightFollowing_8c.html#a9c21a7caee326d7803b94ae1952b27ca">IDLE</a>, et <a class="el" href="structbehaviour__command__t.html#a8e0cbce6b0410e8de4e1949b4d7f9fee">behaviour_command_t::state</a>.</p>
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a097d2f1a8b5fe4b216ab9fc5b91bc8fc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void behaviour_avoid </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>mise à jour de l'état de l'esquive des obstacles 5 états possibles : IDLE détermine la position de l'obstacle s'il y en a un AVOID_OBSTACLE_MIDDLE le robot se déplace vers la droite ou la gauche (selon le dernier obstacle rencontré) AVOID_OBSTACLE_RIGHT le robot se déplace vers la gauche AVOID_OBSTACLE_LEFT le robot se déplace vers la droite AVOID_END retour à l'état IDLE </p>
+
+<p>Références <a class="el" href="RP6Base__LightFollowing_8c.html#af7ca33fc01c451c720ed2980d7860f91">AVOID_END</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a7f163da87b05228d110a9462f5cbe02b">AVOID_OBSTACLE_LEFT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a08fa7206d7fc78d639f574d4ba2add3a">AVOID_OBSTACLE_MIDDLE</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a61963a010dfa81273992cc699accfe7d">AVOID_OBSTACLE_RIGHT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#ac5d94fb7b25c187a7022dbcf24c9f15e">AVOID_SPEED_L_ARC_LEFT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#adfc35910738caabf3198168f36ef7556">AVOID_SPEED_L_ARC_RIGHT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#aa39c0825c9916b9285a5eff03e87fe9c">AVOID_SPEED_R_ARC_LEFT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a265d950a98f4435b9b0f8cd078597d55">AVOID_SPEED_R_ARC_RIGHT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a471cc37a02df3af631cd67f5fa4fc99b">AVOID_SPEED_ROTATE</a>, <a class="el" href="structbehaviour__command__t.html#a61022f78bb0ce36f26d765c515463689">behaviour_command_t::dir</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a9c21a7caee326d7803b94ae1952b27ca">IDLE</a>, <a class="el" href="structbehaviour__command__t.html#a86f680e026a42b71a890b420a18a3409">behaviour_command_t::speed_left</a>, <a class="el" href="structbehaviour__command__t.html#a90b6a0a3bc6b0f4b7504550f36d44187">behaviour_command_t::speed_right</a>, et <a class="el" href="structbehaviour__command__t.html#a8e0cbce6b0410e8de4e1949b4d7f9fee">behaviour_command_t::state</a>.</p>
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#aa574fe74f36cc360e6ac84b9e97906c6">behaviourController()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1b704e124976cb368858a59a1b8890aa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void behaviour_cruise </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Cruise Behaviour </p>
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#aa574fe74f36cc360e6ac84b9e97906c6">behaviourController()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a73693195ce9b101167e6dc6c91f113f2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void behaviour_escape </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>mise à jour de l'état de la fuite du robot 6 états possibles : IDLE état initial ESCAPE_FRONT fuite par rapport à un obstacle au milieu ESCAPE_FRONT_WAIT ESCAPE_LEFT fuite par rapport à un obstacle à gauche ESCAPE_LEFT_WAIT ESCAPE_RIGHT fuite par rapport à un obstacle à droite ESCAPE_RIGHT_WAIT ESCAPE_WAIT_END fin de la fuite </p>
+
+<p>Références <a class="el" href="structbehaviour__command__t.html#a61022f78bb0ce36f26d765c515463689">behaviour_command_t::dir</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a9aaf04da30dff2834e7675ea76d95201">ESCAPE_FRONT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a706e7918ae3a9eb676278ea126c9be25">ESCAPE_FRONT_WAIT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#ae3c30eed961a6c5d42ef2cb492ce1d2a">ESCAPE_LEFT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a00b980bde7c9e37e7157e5a909a9f0e2">ESCAPE_LEFT_WAIT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#ab3ceff4b53a60dd8bdac68ac1254e70a">ESCAPE_RIGHT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a409a70e1a4707c8564204d2b38dec25a">ESCAPE_RIGHT_WAIT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a181cda6f53e1b771be49c31249d1d60b">ESCAPE_SPEED_BWD</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a8c79d686c6b326e75cb090bab91c2a5e">ESCAPE_SPEED_ROTATE</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a7528762f37687c108368e7e8d3fb3fc2">ESCAPE_WAIT_END</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a9c21a7caee326d7803b94ae1952b27ca">IDLE</a>, <a class="el" href="structbehaviour__command__t.html#a57bb1f6812c89bacc1f0c2e43f6b2a09">behaviour_command_t::move</a>, <a class="el" href="structbehaviour__command__t.html#a9ad3d050c3f463b7aafdb68a342d6740">behaviour_command_t::move_value</a>, <a class="el" href="structbehaviour__command__t.html#a837cceca4953c7482b8a1d6e969cf8e7">behaviour_command_t::rotate</a>, <a class="el" href="structbehaviour__command__t.html#a86f680e026a42b71a890b420a18a3409">behaviour_command_t::speed_left</a>, et <a class="el" href="structbehaviour__command__t.html#a8e0cbce6b0410e8de4e1949b4d7f9fee">behaviour_command_t::state</a>.</p>
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#aa574fe74f36cc360e6ac84b9e97906c6">behaviourController()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab9c9902b73db23380927b923d486a77a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void behaviour_follow </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>mise à jour de l'état du suivi de la lumière 2 états possibles : IDLE : on test si l'intensité de lumière est suffisante FOLLOW : on suit la lumière en fonction des capteurs de luminosité </p>
+
+<p>Références <a class="el" href="RP6Base__LightFollowing_8c.html#a04fb2960994665c4826fb9df66d4d835">FOLLOW</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a9c21a7caee326d7803b94ae1952b27ca">IDLE</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a3347250b12c8c59f213baf21f1debf42">LIGHT_MIN</a>, <a class="el" href="structbehaviour__command__t.html#a86f680e026a42b71a890b420a18a3409">behaviour_command_t::speed_left</a>, <a class="el" href="structbehaviour__command__t.html#a90b6a0a3bc6b0f4b7504550f36d44187">behaviour_command_t::speed_right</a>, et <a class="el" href="structbehaviour__command__t.html#a8e0cbce6b0410e8de4e1949b4d7f9fee">behaviour_command_t::state</a>.</p>
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#aa574fe74f36cc360e6ac84b9e97906c6">behaviourController()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa574fe74f36cc360e6ac84b9e97906c6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void behaviourController </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>fonction de contrôle (gère tous les évènements avec des niveaux de priorité) </p>
+
+<p>Références <a class="el" href="RP6Base__LightFollowing_8c.html#a097d2f1a8b5fe4b216ab9fc5b91bc8fc">behaviour_avoid()</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a1b704e124976cb368858a59a1b8890aa">behaviour_cruise()</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a73693195ce9b101167e6dc6c91f113f2">behaviour_escape()</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#ab9c9902b73db23380927b923d486a77a">behaviour_follow()</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a9c21a7caee326d7803b94ae1952b27ca">IDLE</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a5f0892b47efb5f37b64afaba79c9a73c">moveCommand()</a>, et <a class="el" href="structbehaviour__command__t.html#a8e0cbce6b0410e8de4e1949b4d7f9fee">behaviour_command_t::state</a>.</p>
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a764ac8f4347c7f48eb84712a32cec360"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bumpersStateChanged </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>détermine la position que le robot doit fuir en fonction des bumpers </p>
+
+<p>Références <a class="el" href="RP6Base__LightFollowing_8c.html#a9aaf04da30dff2834e7675ea76d95201">ESCAPE_FRONT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#a706e7918ae3a9eb676278ea126c9be25">ESCAPE_FRONT_WAIT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#ae3c30eed961a6c5d42ef2cb492ce1d2a">ESCAPE_LEFT</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#ab3ceff4b53a60dd8bdac68ac1254e70a">ESCAPE_RIGHT</a>, et <a class="el" href="structbehaviour__command__t.html#a8e0cbce6b0410e8de4e1949b4d7f9fee">behaviour_command_t::state</a>.</p>
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a840291bc02cba5474a4cb46a9b9566fe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Références <a class="el" href="RP6Base__LightFollowing_8c.html#a76eec3d25e9613c2be8210363fa6d30b">acsStateChanged()</a>, <a class="el" href="RP6Base__LightFollowing_8c.html#aa574fe74f36cc360e6ac84b9e97906c6">behaviourController()</a>, et <a class="el" href="RP6Base__LightFollowing_8c.html#a764ac8f4347c7f48eb84712a32cec360">bumpersStateChanged()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5f0892b47efb5f37b64afaba79c9a73c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void moveCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbehaviour__command__t.html">behaviour_command_t</a> *&#160;</td>
+          <td class="paramname"><em>cmd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fonction appellée après le traitement et l'interprétation des données des capteurs Elle effectue le mouvement décrit dans la structure <a class="el" href="structbehaviour__command__t.html">behaviour_command_t</a> Le mouvement peut être l'activation des moteurs à une certaine vitesse, une rotation, ou une distance à parcourir </p>
+
+<p>Références <a class="el" href="structbehaviour__command__t.html#a61022f78bb0ce36f26d765c515463689">behaviour_command_t::dir</a>, <a class="el" href="structbehaviour__command__t.html#a57bb1f6812c89bacc1f0c2e43f6b2a09">behaviour_command_t::move</a>, <a class="el" href="structbehaviour__command__t.html#a9ad3d050c3f463b7aafdb68a342d6740">behaviour_command_t::move_value</a>, <a class="el" href="structbehaviour__command__t.html#a837cceca4953c7482b8a1d6e969cf8e7">behaviour_command_t::rotate</a>, <a class="el" href="structbehaviour__command__t.html#a86f680e026a42b71a890b420a18a3409">behaviour_command_t::speed_left</a>, et <a class="el" href="structbehaviour__command__t.html#a90b6a0a3bc6b0f4b7504550f36d44187">behaviour_command_t::speed_right</a>.</p>
+
+<p>Référencé par <a class="el" href="RP6Base__LightFollowing_8c.html#aa574fe74f36cc360e6ac84b9e97906c6">behaviourController()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a class="anchor" id="a83aab701b0dc6b48d35623ddeff11245"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structbehaviour__command__t.html">behaviour_command_t</a> avoid = {0, 0, FWD, false, false, 0, <a class="el" href="RP6Base__LightFollowing_8c.html#a9c21a7caee326d7803b94ae1952b27ca">IDLE</a>}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab53550bba3054cc61038ca5491452cec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structbehaviour__command__t.html">behaviour_command_t</a> cruise</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {<a class="code" href="RP6Base__LightFollowing_8c.html#a51818b7b0d3474e74389495222f54f83">CRUISE_SPEED_FWD</a>, <a class="code" href="RP6Base__LightFollowing_8c.html#a51818b7b0d3474e74389495222f54f83">CRUISE_SPEED_FWD</a>, FWD, </div>
+<div class="line">                                                                <span class="keyword">false</span>, <span class="keyword">false</span>, 0, <a class="code" href="RP6Base__LightFollowing_8c.html#adb73a55f438491791289afd1fc21545d">MOVE_FORWARDS</a>}</div>
+<div class="ttc" id="RP6Base__LightFollowing_8c_html_a51818b7b0d3474e74389495222f54f83"><div class="ttname"><a href="RP6Base__LightFollowing_8c.html#a51818b7b0d3474e74389495222f54f83">CRUISE_SPEED_FWD</a></div><div class="ttdeci">#define CRUISE_SPEED_FWD</div><div class="ttdef"><b>Definition:</b> RP6Base_LightFollowing.c:31</div></div>
+<div class="ttc" id="RP6Base__LightFollowing_8c_html_adb73a55f438491791289afd1fc21545d"><div class="ttname"><a href="RP6Base__LightFollowing_8c.html#adb73a55f438491791289afd1fc21545d">MOVE_FORWARDS</a></div><div class="ttdeci">#define MOVE_FORWARDS</div><div class="ttdef"><b>Definition:</b> RP6Base_LightFollowing.c:33</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a3b9119ff79b94dae9336c9e84f6fcdab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structbehaviour__command__t.html">behaviour_command_t</a> escape = {0, 0, FWD, false, false, 0, <a class="el" href="RP6Base__LightFollowing_8c.html#a9c21a7caee326d7803b94ae1952b27ca">IDLE</a>}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0968db298c973471726c176df190042d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structbehaviour__command__t.html">behaviour_command_t</a> follow = {0, 0, FWD, false, false, 0, <a class="el" href="RP6Base__LightFollowing_8c.html#a9c21a7caee326d7803b94ae1952b27ca">IDLE</a>}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a11a1c4eb91d6666d076e912159c42bcf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structbehaviour__command__t.html">behaviour_command_t</a> STOP = {0, 0, FWD, false, false, 0, <a class="el" href="RP6Base__LightFollowing_8c.html#a9c21a7caee326d7803b94ae1952b27ca">IDLE</a>}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Dimanche 24 Janvier 2016 14:25:25 pour LightFollowing par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>
