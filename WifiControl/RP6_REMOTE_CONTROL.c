@@ -1,3 +1,19 @@
+/* 
+ * ****************************************************************************
+ * RP6 ROBOT - Remote Control
+ * ****************************************************************************
+ * Example: WIFI_REMOTE 1.1 - WIFI Remote Control From a Android device
+ * Author: Aikaterini Minardou
+ * ****************************************************************************
+ * Description:  
+ *	In this program the WLAN Module receives the commands that are sent from the 
+ *  the user's Android device and it is also programs the microcontroller 
+ *	to continious update the user about sensor values (Light, Battery level,
+ *  Bumpers state and  )
+ *
+*/
+// Includes:
+
 #include "RP6M256Lib.h" 		// M256 Lib
 
 #include "RP6I2CmasterTWI.h"	// I2C Master Lib
@@ -57,6 +73,9 @@ behaviour_command_t wifiControl = {0, 0, FWD,
 
 char* message_beginning = "*CLOS**OPEN*";
 
+#define SPEED_RIGHT 40
+#define SPEED_LEFT 40
+
 /**
  * This function allows the remote controll according the received commands from the WLAN 
  * module
@@ -85,9 +104,6 @@ void wifi_Control(void)
          }
 	}*/
 	
-	static uint8_t speedl = 40;
-	static uint8_t speedr = 40;
-	
 	switch(wifiControl.state)
 	{
 		case IDLE: 
@@ -114,45 +130,29 @@ void wifi_Control(void)
 				writeString("\n");
 				if(strcmp(receiveBuffer_WIFI, "fwd")==0)
 				{
-					wifiControl.speed_left = speedl;
-					wifiControl.speed_right = speedr;
+					wifiControl.speed_left = SPEED_LEFT;
+					wifiControl.speed_right = SPEED_RIGHT;
 					writeString("Forward command received\n"); 
 					wifiControl.dir = FWD;
 				}
 				else if(strcmp(receiveBuffer_WIFI, "bwd")==0)
 				{
-					wifiControl.speed_left = speedl;
-					wifiControl.speed_right = speedr;
+					wifiControl.speed_left = SPEED_LEFT;
+					wifiControl.speed_right = SPEED_RIGHT;
 					writeString("Backward command received\n"); 
 					wifiControl.dir = BWD;
 				}
 				else if(strcmp(receiveBuffer_WIFI, "left")==0)
 				{
-					if(speedl/2 >= 30) 
-					{
-						wifiControl.speed_left = speedl / 2;   // reduce speed for rotation otherwise
-						wifiControl.speed_right = speedr / 2;  // it can be quite fast
-					}
-					else if(speedl > 10)
-					{
-						wifiControl.speed_left = 30;
-						wifiControl.speed_right = 30;
-					}
+					wifiControl.speed_left = SPEED_LEFT / 2;   // reduce speed for rotation otherwise
+					wifiControl.speed_right = SPEED_RIGHT;  // it can be quite fast
 					writeString("Left command received\n"); 
 					wifiControl.dir = LEFT;
 				}
 				else if(strcmp(receiveBuffer_WIFI, "right")==0)
 				{
-					if(speedl/2 >= 30) 
-					{
-						wifiControl.speed_left = speedl / 2;
-						wifiControl.speed_right = speedr / 2;
-					}
-					else if(speedl > 10)
-					{
-						wifiControl.speed_left = 30;
-						wifiControl.speed_right = 30;
-					}
+					wifiControl.speed_left = SPEED_LEFT;
+					wifiControl.speed_right = SPEED_RIGHT/2;
 					writeString("Right command received\n"); 
 					wifiControl.dir = RIGHT;
 				}
@@ -252,6 +252,22 @@ void moveCommand(behaviour_command_t * cmd)
 		writeString("Right speed : ");
 		writeInteger(cmd->speed_right,DEC);
 		writeString("\n");*/
+		
+		writeString("left = ");
+		writeInteger(wifiControl.speed_left,DEC);
+		writeString(" right = ");
+		writeInteger(wifiControl.speed_right,DEC);
+		writeString(" dir = ");
+		writeInteger(wifiControl.dir,DEC);
+		writeString(" move = ");
+		writeInteger(wifiControl.move,DEC);
+		writeString(" rotate = ");
+		writeInteger(wifiControl.rotate,DEC);
+		writeString(" move value = ");
+		writeInteger(wifiControl.move_value,DEC);
+		writeString(" state = ");
+		writeInteger(wifiControl.state,DEC);
+		writeString("\n");
 	}
 	else if(isMovementComplete()) // movement complete? --> clear flags!
 	{
@@ -322,13 +338,11 @@ void behaviourController(void)
 	}else if(wifiControl.state != IDLE) // Priority - 1
 	{
 		//while(strcmp(receiveBuffer_WIFI, "stop")!=0){
-		writeString("speed_left = ");
+		/*writeString("left = ");
 		writeInteger(wifiControl.speed_left,DEC);
-		writeString(" speed_right = ");
+		writeString(" right = ");
 		writeInteger(wifiControl.speed_right,DEC);
-		writeString("\n");
-		
-		writeString("dir = ");
+		writeString(" dir = ");
 		writeInteger(wifiControl.dir,DEC);
 		writeString(" move = ");
 		writeInteger(wifiControl.move,DEC);
@@ -338,7 +352,7 @@ void behaviourController(void)
 		writeInteger(wifiControl.move_value,DEC);
 		writeString(" state = ");
 		writeInteger(wifiControl.state,DEC);
-		writeString("\n");
+		writeString("\n");*/
 		
 		moveCommand(&wifiControl);
 		//	wifi_Control();
