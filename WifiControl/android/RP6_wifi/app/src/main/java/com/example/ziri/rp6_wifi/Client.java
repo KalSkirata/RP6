@@ -2,6 +2,7 @@ package com.example.ziri.rp6_wifi;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -13,23 +14,29 @@ import java.net.UnknownHostException;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 
 public class Client extends Activity {
 
     private Socket socket;
-    InputStream is;
     boolean etat_pause = true;
     PrintWriter out;
     private ProgressBar batterie;
-    private BufferedReader input;
-    public static final int BUFFER_SIZE = 2048;
-    private BufferedReader in = null;
+    ToggleButton bumperright;
+    ToggleButton bumperleft;
+    EditText lightr;
+    EditText lightl;
+
+    Handler mHandler;
 
 
     private static final int SERVERPORT = 2001;
@@ -49,27 +56,45 @@ public class Client extends Activity {
         Button left = (Button) findViewById(R.id.left);
         batterie = (ProgressBar) findViewById(R.id.batterie);
         batterie.setProgress(0);
+        batterie.setMax(1000);
+
+        bumperleft = (ToggleButton) findViewById(R.id.bumpleft);
+        bumperright = (ToggleButton) findViewById(R.id.bumpright);
+        bumperright.setEnabled(false);
+        bumperleft.setEnabled(false);
+
+        lightl = (EditText) findViewById(R.id.lightleft);
+        lightr = (EditText) findViewById(R.id.lightright);
+        lightl.setKeyListener(null);
+        lightr.setKeyListener(null);
+
+
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        this.mHandler = new Handler();
+        m_Runnable.run();
 
 
     }
 
+
+    private final Runnable m_Runnable = new Runnable()
+    {
+        public void run()
+
+        {
+            Toast.makeText(Client.this,"in runnable",Toast.LENGTH_SHORT).show();
+
+            Client.this.mHandler.postDelayed(m_Runnable,10000);
+        }
+
+    };
+
+
     public void onClick(View view) {
 
-
-/*            try {
-
-                String in = input.readLine();
-                Log.e(TAG, in);
-                /*if (isInteger(in)) {
-                    Log.e(TAG, in);
-                    batterie.setProgress(Integer.parseInt(in));
-                }
-
-
-            } catch (IOException e) {
-            }catch (NullPointerException e){
-
-            }*/
 
         final int id = view.getId();
 
@@ -79,7 +104,8 @@ public class Client extends Activity {
                 try {
                     new Thread(new ClientThread()).start();
 
-                    this.input = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
+                    //this.input = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
+
 
                     /*String str = "connection";
                     PrintWriter out = new PrintWriter(new BufferedWriter(
@@ -103,6 +129,8 @@ public class Client extends Activity {
                             new OutputStreamWriter(socket.getOutputStream())),
                             true);
                     out.println(fwd);
+                    sensors();
+
                     //out.flush();
                     Log.e(TAG, " avancer vers l'avant");
 
@@ -121,7 +149,7 @@ public class Client extends Activity {
                             new OutputStreamWriter(socket.getOutputStream())),
                             true);
                     out.println(rgt);
-                    //out.flush();
+                    sensors();
                     Log.e(TAG, " tourner a droite");
                     //out.close();
                     Toast.makeText(getApplicationContext(),
@@ -140,7 +168,7 @@ public class Client extends Activity {
                     out.println(back);
                     out.flush();
                     Log.e(TAG, " reculer");
-                    //out.close();
+                    sensors();
 
                     Toast.makeText(getApplicationContext(),
                         "get back", Toast.LENGTH_LONG).show();
@@ -155,9 +183,9 @@ public class Client extends Activity {
                             new OutputStreamWriter(socket.getOutputStream())),
                             true);
                     out.println(lft);
-                    //out.flush();
+                    sensors();
                     Log.e(TAG, "tourner a gauche");
-                    //out.close();
+
                     Toast.makeText(getApplicationContext(),
                         "turn left", Toast.LENGTH_LONG).show();
 
@@ -173,8 +201,7 @@ public class Client extends Activity {
                             new OutputStreamWriter(socket.getOutputStream())),
                             true);
                     out.println(str);
-                    //out.flush();
-                    //out.close();
+
                     socket.close();
                     Log.e(TAG, " la socket est fermé");
                     Toast.makeText(getApplicationContext(),
@@ -183,72 +210,89 @@ public class Client extends Activity {
                     e.printStackTrace();}
                 break;
 
-            case R.id.stop:
-                try {
+                case R.id.stop:
+                    try {
 
-                if (etat_pause == true) {
-                     String stp = "stop";
-                    PrintWriter out = new PrintWriter(new BufferedWriter(
-                            new OutputStreamWriter(socket.getOutputStream())),
-                            true);
-                    out.println(stp);
-                    out.flush();
-                    Log.e(TAG, " arreter ");
-                    //out.close();
-                        Toast.makeText(getApplicationContext(),
+                        if (etat_pause == true) {
+                            String stp = "stop";
+                            PrintWriter out = new PrintWriter(new BufferedWriter(
+                                new OutputStreamWriter(socket.getOutputStream())),
+                                true);
+                            out.println(stp);
+                            out.flush();
+                            Log.e(TAG, " arreter ");
+
+                            Toast.makeText(getApplicationContext(),
                                 "le robot est arreter", Toast.LENGTH_LONG).show();
 
-                    etat_pause = false;
+                            etat_pause = false;
 
-                }
-                else {
+                         }
+                        else {
 
-                    String srt = "start";
-                    PrintWriter out = new PrintWriter(new BufferedWriter(
-                            new OutputStreamWriter(socket.getOutputStream())),
-                            true);
-                    out.println(srt);
-                    out.flush();
+                            String srt = "start";
+                            PrintWriter out = new PrintWriter(new BufferedWriter(
+                                    new OutputStreamWriter(socket.getOutputStream())),
+                                    true);
+                            out.println(srt);
+                            out.flush();
+                            sensors();
+                            Log.e(TAG, " start ");
 
-                    //out.close();
-                    Toast.makeText(getApplicationContext(),
-                            " le robot est en marche", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),
+                                " le robot est en marche", Toast.LENGTH_LONG).show();
 
 
-                    etat_pause = true;
-                }
-                }catch (Exception e){
-                    e.printStackTrace();}
+                            etat_pause = true;
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();}
                 break;
 
-            case R.id.batterie:
+            /*case R.id.batterie:
                 try {
-                    byte[] buffer = new byte[1024];
-                    int bytesRead;
+
+
                     String str = "Battery";
                     PrintWriter out = new PrintWriter(new BufferedWriter(
                             new OutputStreamWriter(socket.getOutputStream())),
                             true);
                     out.println(str);
-                    //out.flush();
-                    //out.close();
-                    //is = socket.getInputStream();
 
-                    Toast.makeText(Client.this, receiveDataFromServer(), Toast.LENGTH_SHORT).show();
+                    BufferedReader in = new BufferedReader(
+                            new InputStreamReader( socket.getInputStream()));
 
-                    //String in = input.readLine();
-                    //Log.e(TAG, in);
+                    //int inputLine = Integer.parseInt(in.readLine());
+                    String msg = in.readLine();
 
-                /*if (isInteger(in)) {
-                    Log.e(TAG, in);
-                    batterie.setProgress(Integer.parseInt(in));
-                }*/
-                    Log.e(TAG, " etat de la batterie");
+                    String data [] = msg.split("/");
+
+                    if (data[0].equals("bat")){
+                        batterie.setProgress(Integer.parseInt(data[1]));
+                    }
+
+                    Log.e(TAG, data[0]);
+                    Log.e(TAG, data[1]);
+
+                    String val = String.valueOf(in.readLine());
+
+                    if (val.length() >= 3) {
+                        //String aString = Integer.toString(inputLine);
+
+
+                        Toast.makeText(getApplicationContext(),
+                                val, Toast.LENGTH_LONG).show();
+                    }
+                    Log.e(TAG, val);
+
+
+                    Log.e(TAG, "batterie");
                     Toast.makeText(getApplicationContext(),
                             "batterie", Toast.LENGTH_LONG).show();
                 }catch (Exception e){
-                    e.printStackTrace();}
-                break;
+                    e.printStackTrace();
+                }
+            break;*/
         }
     }
 
@@ -267,6 +311,10 @@ public class Client extends Activity {
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
+            Toast.makeText(Client.this,"in runnable",Toast.LENGTH_SHORT).show();
+
+            Client.this.mHandler.postDelayed(m_Runnable,20000);
+
 
         }
 
@@ -283,23 +331,40 @@ public class Client extends Activity {
         return true;
     }
 
-    public String receiveDataFromServer() {
+    public void sensors() {
         try {
-            String message = "";
-            int charsRead = 0;
-            char[] buffer = new char[BUFFER_SIZE];
 
-            while ((charsRead = in.read(buffer)) != -1) {
-                message += new String(buffer).substring(0, charsRead);
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(socket.getInputStream()));
+
+
+            String msg = in.readLine();
+
+            String data[] = msg.split("/");
+
+            if (data[0].equals("bat")) {
+                batterie.setProgress(Integer.parseInt(data[1]));
+                Log.e(TAG,data[1]);
             }
 
-            //disConnectWithServer(); // disconnect server
-            return message;
+            else if (data[0].equals("light")) {
+                lightl.setText(Integer.parseInt(data[1])+"%");
+                lightr.setText(Integer.parseInt(data[2])+"%");
+                Log.e(TAG,data[1]);
+                Log.e(TAG,data[2]);
+            }
+
+            else if (data[0].equals("bumper")) {
+                bumperleft.setChecked(Boolean.valueOf(data[1]));
+                bumperright.setChecked(Boolean.valueOf(data[2]));
+                Log.e(TAG,data[1]);
+                Log.e(TAG,data[2]);
+            }
+
         } catch (IOException e) {
-            return "Error receiving response:  " + e.getMessage();
+            e.printStackTrace();
         }
     }
-
 
 
 }

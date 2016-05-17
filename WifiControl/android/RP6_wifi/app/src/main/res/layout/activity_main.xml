@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
 
     tools:context="com.example.ziri.rp6_wifi.MainActivity"
-    android:clickable="true">
+    android:clickable="false">
 
     <Button
         android:id="@+id/connexion"
@@ -50,18 +50,18 @@
         android:layout_height="100dp"
         android:background="@drawable/up"
         android:id="@+id/up"
-        android:layout_above="@+id/left"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:layout_below="@+id/connexion"
+        android:layout_alignStart="@+id/stop" />
 
     <Button
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/right"
         android:id="@+id/right"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/up"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:layout_below="@+id/up"
+        android:layout_toEndOf="@+id/up" />
 
     <Button
         android:layout_width="100dp"
@@ -77,20 +77,101 @@
         android:layout_height="100dp"
         android:background="@drawable/stop1"
         android:id="@+id/stop"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:layout_below="@+id/up"
+        android:layout_centerHorizontal="true" />
 
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="?android:attr/progressBarStyleHorizontal"
+        android:progressDrawable="@drawable/custom_progressbar"
         android:id="@+id/batterie"
         android:indeterminate="false"
         android:progress="5"
         android:layout_alignParentBottom="true"
         android:layout_alignEnd="@+id/deconnexion"
         android:layout_alignParentStart="true"
-        android:clickable="false" />
+        android:clickable="false"
+        android:onClick="onClick"/>
+
+    <ToggleButton
+        android:background="@drawable/toggle_selector"
+        android:textOff="False"
+        android:textOn="True"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bumpleft"
+        android:id="@+id/bumpleft"
+        android:checked="false"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
+
+    <ToggleButton
+        android:background="@drawable/toggle_selector"
+        android:textOff="False"
+        android:textOn="True"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bumpright"
+        android:id="@+id/bumpright"
+        android:checked="false"
+        android:layout_alignTop="@+id/bumpleft"
+        android:layout_alignEnd="@+id/textView2" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="bumper left"
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/up"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="bumper right"
+        android:id="@+id/textView2"
+        android:layout_above="@+id/bumpleft"
+        android:layout_alignEnd="@+id/deconnexion" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="light left"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/down"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="light right"
+        android:id="@+id/textView4"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignEnd="@+id/batterie" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lightleft"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentStart="true"
+        android:text="0%"
+        android:layout_alignEnd="@+id/bumpleft" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lightright"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/bumpright"
+        android:text="0%" />
 
 </RelativeLayout>
