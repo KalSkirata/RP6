@@ -13,6 +13,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
@@ -36,17 +37,19 @@ public class Client extends Activity {
     EditText lightr;
     EditText lightl;
 
-    Handler mHandler;
+    //Handler mHandler;
 
 
     private static final int SERVERPORT = 2001;
-    private static final String SERVER_IP = "192.168.1.18";
+    private static final String SERVER_IP = "192.168.137.10";
 
     public static final String TAG = "MyActivity";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         setContentView(R.layout.activity_main);
         Button conn = (Button) findViewById(R.id.connexion);
         Button deconn = (Button) findViewById(R.id.deconnexion);
@@ -60,8 +63,8 @@ public class Client extends Activity {
 
         bumperleft = (ToggleButton) findViewById(R.id.bumpleft);
         bumperright = (ToggleButton) findViewById(R.id.bumpright);
-        bumperright.setEnabled(false);
-        bumperleft.setEnabled(false);
+        bumperright.setEnabled(true);
+        bumperleft.setEnabled(true);
 
         lightl = (EditText) findViewById(R.id.lightleft);
         lightr = (EditText) findViewById(R.id.lightright);
@@ -73,13 +76,13 @@ public class Client extends Activity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        this.mHandler = new Handler();
-        m_Runnable.run();
+        //  this.mHandler = new Handler();
+        // m_Runnable.run();
 
 
     }
 
-
+/*
     private final Runnable m_Runnable = new Runnable()
     {
         public void run()
@@ -91,7 +94,7 @@ public class Client extends Activity {
         }
 
     };
-
+*/
 
     public void onClick(View view) {
 
@@ -119,11 +122,12 @@ public class Client extends Activity {
                             "connection established", Toast.LENGTH_LONG).show();
 */
                 } catch (Exception e) {
-                e.printStackTrace();}
+                    e.printStackTrace();}
                 break;
 
             case R.id.up:
                 try {
+
                     String fwd = "fwd";
                     PrintWriter out = new PrintWriter(new BufferedWriter(
                             new OutputStreamWriter(socket.getOutputStream())),
@@ -153,7 +157,7 @@ public class Client extends Activity {
                     Log.e(TAG, " tourner a droite");
                     //out.close();
                     Toast.makeText(getApplicationContext(),
-                        "turn right", Toast.LENGTH_LONG).show();
+                            "turn right", Toast.LENGTH_LONG).show();
 
                 }catch (Exception e){
                     e.printStackTrace();}
@@ -161,6 +165,7 @@ public class Client extends Activity {
 
             case R.id.down:
                 try {
+
                     String back = "bwd";
                     out = new PrintWriter(new BufferedWriter(
                             new OutputStreamWriter(socket.getOutputStream())),
@@ -171,8 +176,10 @@ public class Client extends Activity {
                     sensors();
 
                     Toast.makeText(getApplicationContext(),
-                        "get back", Toast.LENGTH_LONG).show();
+                            "get back", Toast.LENGTH_LONG).show();
+
                 }catch (Exception e){
+
                     e.printStackTrace();}
                 break;
 
@@ -187,13 +194,13 @@ public class Client extends Activity {
                     Log.e(TAG, "tourner a gauche");
 
                     Toast.makeText(getApplicationContext(),
-                        "turn left", Toast.LENGTH_LONG).show();
+                            "turn left", Toast.LENGTH_LONG).show();
 
                 }catch (Exception e){
                     e.printStackTrace();}
                 break;
 
-                case R.id.deconnexion:
+            case R.id.deconnexion:
                 try {
 
                     String str = "disconnection";
@@ -210,43 +217,43 @@ public class Client extends Activity {
                     e.printStackTrace();}
                 break;
 
-                case R.id.stop:
-                    try {
+            case R.id.stop:
+                try {
 
-                        if (etat_pause == true) {
-                            String stp = "stop";
-                            PrintWriter out = new PrintWriter(new BufferedWriter(
+                    if (etat_pause == true) {
+                        String stp = "stop";
+                        PrintWriter out = new PrintWriter(new BufferedWriter(
                                 new OutputStreamWriter(socket.getOutputStream())),
                                 true);
-                            out.println(stp);
-                            out.flush();
-                            Log.e(TAG, " arreter ");
+                        out.println(stp);
+                        out.flush();
+                        Log.e(TAG, " arreter ");
 
-                            Toast.makeText(getApplicationContext(),
+                        Toast.makeText(getApplicationContext(),
                                 "le robot est arreter", Toast.LENGTH_LONG).show();
 
-                            etat_pause = false;
+                        etat_pause = false;
 
-                         }
-                        else {
+                    }
+                    else {
 
-                            String srt = "start";
-                            PrintWriter out = new PrintWriter(new BufferedWriter(
-                                    new OutputStreamWriter(socket.getOutputStream())),
-                                    true);
-                            out.println(srt);
-                            out.flush();
-                            sensors();
-                            Log.e(TAG, " start ");
+                        String srt = "start";
+                        PrintWriter out = new PrintWriter(new BufferedWriter(
+                                new OutputStreamWriter(socket.getOutputStream())),
+                                true);
+                        out.println(srt);
+                        out.flush();
+                        sensors();
+                        Log.e(TAG, " start ");
 
-                            Toast.makeText(getApplicationContext(),
+                        Toast.makeText(getApplicationContext(),
                                 " le robot est en marche", Toast.LENGTH_LONG).show();
 
 
-                            etat_pause = true;
-                        }
-                    }catch (Exception e){
-                        e.printStackTrace();}
+                        etat_pause = true;
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();}
                 break;
 
             /*case R.id.batterie:
@@ -311,9 +318,6 @@ public class Client extends Activity {
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
-            Toast.makeText(Client.this,"in runnable",Toast.LENGTH_SHORT).show();
-
-            Client.this.mHandler.postDelayed(m_Runnable,20000);
 
 
         }
@@ -339,26 +343,32 @@ public class Client extends Activity {
 
 
             String msg = in.readLine();
+            //Log.e(TAG,msg);
+            String data[] = msg.split(",");
+            String result[][] = new String[3][3];
 
-            String data[] = msg.split("/");
+            for (int i = 0; i < data.length; i++)
+            {
+                result[i] = data[i].split("/");
 
-            if (data[0].equals("bat")) {
-                batterie.setProgress(Integer.parseInt(data[1]));
-                Log.e(TAG,data[1]);
+            }
+            if (result[0][0].equals("bat")) {
+                batterie.setProgress(Integer.parseInt(result[0][1]));
+                Log.e(TAG,"[0][1]"+result[0][1]);
             }
 
-            else if (data[0].equals("light")) {
-                lightl.setText(Integer.parseInt(data[1])+"%");
-                lightr.setText(Integer.parseInt(data[2])+"%");
-                Log.e(TAG,data[1]);
-                Log.e(TAG,data[2]);
+            if (result[1][0].equals("light")) {
+                lightl.setText(Integer.parseInt(result[1][1])/10+"%");
+                lightr.setText(Integer.parseInt(result[1][2])/10+"%");
+                Log.e(TAG,"[1][1]"+result[1][1]);
+                Log.e(TAG,"[1][2]"+result[1][2]);
             }
 
-            else if (data[0].equals("bumper")) {
-                bumperleft.setChecked(Boolean.valueOf(data[1]));
-                bumperright.setChecked(Boolean.valueOf(data[2]));
-                Log.e(TAG,data[1]);
-                Log.e(TAG,data[2]);
+            if (result[2][0].equals("acs")) {
+                bumperleft.setChecked(Boolean.parseBoolean(result[2][1]));
+                bumperright.setChecked(Boolean.parseBoolean(result[2][2]));
+                Log.e(TAG,"[2][1]"+result[2][1]);
+                Log.e(TAG,"[2][2]"+result[2][2]);
             }
 
         } catch (IOException e) {
